@@ -284,8 +284,20 @@
             padding-right: 40px;
         }
         
+        .image-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+        }
+        
         .about-image img {
-            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
@@ -648,20 +660,6 @@
             .nav-links.active {
                 left: 0;
             }
-            .image-container {
-            width: 300px;  /* Set the width */
-            height: 200px; /* Set the height (crop area) */
-            overflow: hidden; /* Hide the overflowing part */
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-        }
-
-        .image-container img {
-            width: 100%;  /* Ensure it covers the container */
-            height: 100%; /* Maintain aspect ratio */
-            object-fit: cover; /* Crop the image */
-        }
             
             .nav-links li {
                 margin: 15px 0;
@@ -714,25 +712,79 @@
                 padding-right: 0;
                 margin-bottom: 40px;
             }
-        }
-        
-        @media (max-width: 576px) {
+            
+            /* Image container for mobile */
+            .image-container {
+                width: 300px;
+                height: 200px;
+                margin: 0 auto;
+            }
+            
+            /* Adjust hero section for mobile */
+            #hero {
+                padding-top: 80px;
+                height: auto;
+                min-height: 100vh;
+            }
+            
             .hero-text h1 {
                 font-size: 2.2rem;
+                line-height: 1.3;
             }
             
-            .btn {
-                display: block;
-                width: 100%;
-                margin-bottom: 15px;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-            }
-            
+            /* Improve project cards on mobile */
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .project-card {
+                margin-bottom: 20px;
+            }
+            
+            /* Adjust contact form */
+            .form-control {
+                font-size: 16px;
+            }
+            
+            /* Make buttons more touch-friendly */
+            .btn, .filter-btn {
+                padding: 12px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Further adjustments for very small screens */
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+            
+            .about-text h3, .contact-info h3 {
+                font-size: 1.5rem;
+            }
+            
+            /* Improve form inputs */
+            .form-control {
+                padding: 14px 15px;
+            }
+            
+            /* Adjust footer links */
+            .footer-links {
+                flex-direction: column;
+            }
+            
+            .footer-links li {
+                margin: 5px 0;
+            }
+            
+            /* Center buttons on small screens */
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
             }
         }
     </style>
@@ -785,7 +837,9 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="IMG_4298.DNG" alt="Aneesh Gupta">
+                        <div class="image-container">
+                            <img src="IMG_4298.DNG" alt="Aneesh Gupta">
+                        </div>
                     </div>
                     <div class="about-text">
                         <h3>Professional Data Analyst</h3>
