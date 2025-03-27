@@ -6,15 +6,17 @@
     <title>Aneesh Gupta - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Global Styles */
+        /* Updated Global Styles with New Color Palette */
         :root {
-            --primary: #3a86ff;
-            --secondary: #8338ec;
-            --dark: #212529;
-            --light: #f8f9fa;
-            --success: #06d6a0;
-            --danger: #ef476f;
-            --warning: #ffd166;
+            --primary: #144A5A;       /* Dark teal - primary color */
+            --secondary: #148D8D;     /* Medium teal - secondary color */
+            --accent: #EFBC75;        /* Light tan - accent color */
+            --dark: #0E2C3D;          /* Very dark blue - text color */
+            --light: #F5F5F5;         /* Light gray - background */
+            --medium: #C1E1A7;        /* Soft green - secondary accent */
+            --success: #148D8D;       /* Using secondary for success */
+            --danger: #E74C3C;         /* Keeping red for errors */
+            --warning: #EFBC75;        /* Using accent for warnings */
         }
         
         * {
@@ -60,7 +62,7 @@
             margin-bottom: 60px;
             font-size: 2.5rem;
             position: relative;
-            color: var(--dark);
+            color: var(--primary);
         }
         
         .section-title::after {
@@ -82,14 +84,14 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(14, 44, 61, 0.1);
             transition: all 0.3s ease;
         }
         
         header.scrolled {
             background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(14, 44, 61, 0.1);
             padding: 10px 0;
         }
         
@@ -122,6 +124,7 @@
         .nav-links a {
             font-weight: 600;
             position: relative;
+            color: var(--dark);
         }
         
         .nav-links a::after {
@@ -157,7 +160,7 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(58, 134, 255, 0.1) 0%, rgba(131, 56, 236, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(20, 74, 90, 0.05) 0%, rgba(20, 141, 141, 0.05) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -179,10 +182,11 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             line-height: 1.2;
+            color: var(--primary);
         }
         
         .hero-text h1 span {
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         .hero-text p {
@@ -201,8 +205,9 @@
         .hero-image img {
             max-width: 100%;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(14, 44, 61, 0.1);
             animation: float 6s ease-in-out infinite;
+            border: 5px solid white;
         }
         
         @keyframes float {
@@ -221,12 +226,13 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(20, 74, 90, 0.2);
         }
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(20, 74, 90, 0.3);
+            background: linear-gradient(to right, var(--secondary), var(--primary));
         }
         
         .btn-outline {
@@ -239,6 +245,7 @@
         .btn-outline:hover {
             background: linear-gradient(to right, var(--primary), var(--secondary));
             color: white;
+            border-color: transparent;
         }
         
         .social-icons {
@@ -255,8 +262,9 @@
             background-color: white;
             border-radius: 50%;
             margin-right: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(14, 44, 61, 0.1);
             transition: all 0.3s ease;
+            color: var(--primary);
         }
         
         .social-icons a:hover {
@@ -292,14 +300,15 @@
             justify-content: center;
             align-items: center;
             border-radius: 20px;
+            border: 5px solid white;
+            box-shadow: 0 20px 40px rgba(14, 44, 61, 0.1);
         }
         
         .about-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
         }
         
         .about-text {
@@ -310,7 +319,7 @@
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--dark);
+            color: var(--primary);
         }
         
         .about-text p {
@@ -367,7 +376,8 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(14, 44, 61, 0.05);
+            color: var(--dark);
         }
         
         .filter-btn.active, .filter-btn:hover {
@@ -385,14 +395,14 @@
             background-color: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(14, 44, 61, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
         }
         
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 40px rgba(14, 44, 61, 0.15);
         }
         
         .project-image {
@@ -418,7 +428,7 @@
         .project-info h3 {
             font-size: 1.4rem;
             margin-bottom: 10px;
-            color: var(--dark);
+            color: var(--primary);
         }
         
         .project-info p {
@@ -439,6 +449,7 @@
             font-size: 0.8rem;
             margin-right: 10px;
             margin-bottom: 10px;
+            color: var(--dark);
         }
         
         .project-links a {
@@ -446,6 +457,7 @@
             font-weight: 600;
             display: inline-flex;
             align-items: center;
+            color: var(--secondary);
         }
         
         .project-links a i {
@@ -475,7 +487,7 @@
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--dark);
+            color: var(--primary);
         }
         
         .contact-info p {
@@ -526,7 +538,7 @@
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(20, 74, 90, 0.2);
         }
         
         textarea.form-control {
@@ -536,7 +548,7 @@
         
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: var(--primary);
             color: white;
             padding: 50px 0 20px;
             text-align: center;
@@ -562,7 +574,7 @@
         }
         
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
         
         .footer-social {
@@ -577,7 +589,7 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background-color: #333;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             margin: 0 10px;
             color: white;
@@ -587,7 +599,8 @@
         
         .footer-social a:hover {
             transform: translateY(-5px);
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: var(--accent);
+            color: var(--primary);
         }
         
         .copyright {
@@ -609,7 +622,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(14, 44, 61, 0.2);
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
@@ -1022,7 +1035,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="index.html" class="logo">Aneesh<span>Gupta</span></a>
+                <a href="index.html" class="logo" style="color: white;">Aneesh<span style="color: var(--accent);">Gupta</span></a>
                 <p>Transforming data into decisions that drive success.</p>
             </div>
             <ul class="footer-links">
