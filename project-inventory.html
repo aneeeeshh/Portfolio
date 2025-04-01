@@ -1,81 +1,248 @@
-tory<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OLA Dashboard - Aneesh Gupta</title>
+    <title>Inventory Management System - Aneesh Gupta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* You can reuse the same CSS from your main page */
+        :root {
+            --primary: #2563eb;       /* Blue-600 */
+            --primary-dark: #1d4ed8;  /* Blue-700 */
+            --primary-light: #3b82f6; /* Blue-500 */
+            --secondary: #10b981;    /* Emerald-500 */
+            --dark: #1e293b;         /* Slate-800 */
+            --dark-light: #334155;    /* Slate-700 */
+            --light: #f8fafc;        /* Slate-50 */
+            --gray: #94a3b8;         /* Slate-400 */
+            --light-gray: #e2e8f0;    /* Slate-200 */
+            --white: #ffffff;
+            --black: #0f172a;       /* Slate-900 */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--white);
+            color: var(--dark);
             line-height: 1.6;
-            color: #333;
+            padding: 0;
+        }
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 100px 20px 60px;
         }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-right: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
         .project-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            position: relative;
         }
+        
+        .project-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .project-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
         .project-content {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
+            margin-bottom: 60px;
         }
+        
         .project-image {
             flex: 1;
             min-width: 300px;
+            background-color: var(--light);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
+        
         .project-image img {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
+        
+        .project-image img:hover {
+            transform: scale(1.02);
+        }
+        
         .project-details {
             flex: 1;
             min-width: 300px;
         }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #3a86ff;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
+        
+        .project-details h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .project-details h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .project-details p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .project-details h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin: 25px 0 15px;
+        }
+        
+        .project-details ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        
+        .project-details li {
+            margin-bottom: 10px;
+            color: var(--dark-light);
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-tag {
+            padding: 8px 15px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: 20px;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 80px 20px 40px;
+            }
+            
+            .project-header h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="project-header">
-        <h1>Inventory Management System</h1>
-        <p>Python Project | Feb 2025 - Mar 2025</p>
-    </div>
-    
-    <div class="project-content">
-        <div class="project-image">
-            <img src="inventory.png" alt="Inventory Management System">
+    <div class="container">
+        <div class="project-header">
+            <h1>Inventory Management System</h1>
+            <p>Python Project | Feb 2025 - Mar 2025</p>
         </div>
         
-        <div class="project-details">
-            <h2>Project Details</h2>
-            <p>Created a dynamic inventory management system to track stock, sales and demand. Also maintained the sales data separately</p>
+        <div class="project-content">
+            <div class="project-image">
+                <img src="inventory.png" alt="Inventory Management System">
+            </div>
             
-            <h3>Key Features</h3>
-            <ul>
-                <li>Utilized Python dictionaries to store and manage 1,000+ product records, including ID, name, quantity, price, and 
-category</li>
-                <li>Developed 10+ dynamic functions for adding, updating, and deleting inventory items, improving data management 
-efficiency</li>
-                <li>Maintained a transaction history tracking 5,000+ sales and purchase records, ensuring accurate financial and stock 
-management</li>
-            </ul>
-            
-            <h3>Technologies Used</h3>
-            <p>Python, Data Structures, Dictionaries, SQL</p>
-            
-            <a href="index.html" class="btn">Back to Portfolio</a>
+            <div class="project-details">
+                <h2>Project Details</h2>
+                <p>Created a dynamic inventory management system to track stock, sales and demand. Also maintained the sales data separately.</p>
+                
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Utilized Python dictionaries to store and manage 1,000+ product records, including ID, name, quantity, price, and category</li>
+                    <li>Developed 10+ dynamic functions for adding, updating, and deleting inventory items, improving data management efficiency</li>
+                    <li>Maintained a transaction history tracking 5,000+ sales and purchase records, ensuring accurate financial and stock management</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Data Structures</span>
+                    <span class="tech-tag">Dictionaries</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Database</span>
+                </div>
+                
+                <a href="index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
         </div>
     </div>
 </body>
